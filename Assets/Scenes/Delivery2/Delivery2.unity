@@ -2716,13 +2716,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836432380}
-  m_LocalRotation: {x: -0.05533895, y: 0.73555523, z: -0.07252213, w: -0.67129487}
-  m_LocalPosition: {x: -3.25, y: 6.48, z: -14.46}
+  m_LocalRotation: {x: -0.04253731, y: 0.83675295, z: -0.080699876, w: -0.53992844}
+  m_LocalPosition: {x: -3.49, y: 2.748, z: -17.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 10.427, y: -95.146, z: 0.93}
+  m_LocalEulerAnglesHint: {x: 10.427, y: -114.25, z: 0.93}
 --- !u!4 &843743265 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d39730d07410b214d9e1824b99684287,
@@ -7049,7 +7049,7 @@ GameObject:
   - component: {fileID: 1920645012}
   - component: {fileID: 1920645011}
   m_Layer: 8
-  m_Name: GameObject
+  m_Name: WaterPostProcess
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7093,7 +7093,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1920645010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.56687546, y: -0.8, z: 10.04}
+  m_LocalPosition: {x: 0.56687546, y: -0.86, z: 10.04}
   m_LocalScale: {x: 70.178696, y: 5.4694796, z: 70.765366}
   m_Children: []
   m_Father: {fileID: 0}

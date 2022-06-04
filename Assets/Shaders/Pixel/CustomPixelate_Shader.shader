@@ -20,7 +20,7 @@
 
 	float4 Frag(VaryingsDefault i) : SV_Target
 	{
-		_targetPixelSize = _targetPixelSize + (deltaTime);
+		_targetPixelSize = _targetPixelSize + (deltaTime * 0.7);
 		if (drowningAnimation == 1)
 		{
 		}

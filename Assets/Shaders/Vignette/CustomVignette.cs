@@ -33,6 +33,8 @@ public sealed class CustomVignetteSettings : PostProcessEffectSettings
     public BoolParameter heartBeatAnim = new BoolParameter { value = false };
     [Range(0f, 100f), Tooltip("Animation speed for heart beat.")]
     public FloatParameter heartBeatSpeed = new FloatParameter { value = 3f };
+
+    public BoolParameter drowningAnimation = new BoolParameter { value = false };
 }
 
 public class CustomVignette : PostProcessEffectRenderer<CustomVignetteSettings>
@@ -53,6 +55,8 @@ public class CustomVignette : PostProcessEffectRenderer<CustomVignetteSettings>
         sheet.properties.SetInt("_heartBeat", settings.heartBeatAnim ? 1 : 0);
     
         sheet.properties.SetFloat("_speed", settings.heartBeatSpeed);
+        sheet.properties.SetInt("drowningAnimation", settings.drowningAnimation ? 1 : 0);
+        sheet.properties.SetFloat("deltaTime", Time.timeSinceLevelLoad - timeSinceCollision);
         context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0);
     }
 }

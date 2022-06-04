@@ -17,11 +17,17 @@
 	bool _innerColor;
 	bool _heartBeat;
 	float _speed;
-
+	float deltaTime;
+	
+	int drowningAnimation = 1;
 
 
 	float4 Frag(VaryingsDefault i) : SV_Target
 	{
+		if (drowningAnimation == 1)
+		{
+			_outterVignetteColor.rgb = _outterVignetteColor.rgb * (1 - (deltaTime * 0.1));
+		}
 		float2 darkCoord = (i.texcoord * (_dimensions * 2)) - (2*_center * _dimensions); //--> setting position of vignette on screen
 		float factor;
 
