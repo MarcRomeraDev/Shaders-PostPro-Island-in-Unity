@@ -25,12 +25,12 @@ public sealed class CustomPixelate : PostProcessEffectSettings
 
     public BoolParameter randomPixelate = new BoolParameter { value = false };
     public BoolParameter drowningAnimation = new BoolParameter { value = false };
-    
+   [HideInInspector] public FloatParameter timeSinceCollision = new FloatParameter { value = 0f };
+
 }
 
 public class CustomPixelateRender : PostProcessEffectRenderer<CustomPixelate>
 {
-    public float timeSinceCollision = Time.timeSinceLevelLoad;
     public override void Render(PostProcessRenderContext context)
     {
         var sheet = context.propertySheets.Get(Shader.Find("Hidden/Custom/Pixelate"));
@@ -43,7 +43,7 @@ public class CustomPixelateRender : PostProcessEffectRenderer<CustomPixelate>
         sheet.properties.SetFloat("animationCurve", settings.animationintensity);
         sheet.properties.SetInt("drowningAnimation", settings.drowningAnimation ? 1 : 0);
         
-        sheet.properties.SetFloat("deltaTime",  Time.timeSinceLevelLoad - timeSinceCollision);
+       sheet.properties.SetFloat("deltaTime",  Time.timeSinceLevelLoad - settings.timeSinceCollision.value);
         context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0);
     }
 }

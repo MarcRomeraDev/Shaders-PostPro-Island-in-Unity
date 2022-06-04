@@ -33,13 +33,14 @@ public sealed class CustomVignette : PostProcessEffectSettings
     public BoolParameter heartBeatAnim = new BoolParameter { value = false };
     [Range(0f, 100f), Tooltip("Animation speed for heart beat.")]
     public FloatParameter heartBeatSpeed = new FloatParameter { value = 3f };
-
+   
     public BoolParameter drowningAnimation = new BoolParameter { value = false };
+    [HideInInspector] public FloatParameter timeSinceCollision = new FloatParameter { value = 0f };
 }
 
 public class CustomVignetteRender : PostProcessEffectRenderer<CustomVignette>
 {
-    public float timeSinceCollision = Time.timeSinceLevelLoad;
+    
     public override void Render(PostProcessRenderContext context)
     {
         var sheet = context.propertySheets.Get(Shader.Find("Hidden/Custom/Vignette"));
@@ -56,7 +57,7 @@ public class CustomVignetteRender : PostProcessEffectRenderer<CustomVignette>
     
         sheet.properties.SetFloat("_speed", settings.heartBeatSpeed);
         sheet.properties.SetInt("drowningAnimation", settings.drowningAnimation ? 1 : 0);
-        sheet.properties.SetFloat("deltaTime", Time.timeSinceLevelLoad - timeSinceCollision);
+        sheet.properties.SetFloat("deltaTime", Time.timeSinceLevelLoad - settings.timeSinceCollision);
         context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0);
     }
 }

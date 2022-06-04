@@ -262,6 +262,9 @@ MonoBehaviour:
   drowningAnimation:
     overrideState: 1
     value: 1
+  timeSinceCollision:
+    overrideState: 1
+    value: 10
 --- !u!114 &9222669037760811897
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -305,3 +308,6 @@ MonoBehaviour:
   drowningAnimation:
     overrideState: 1
     value: 1
+  timeSinceCollision:
+    overrideState: 1
+    value: 0
