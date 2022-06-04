@@ -5,8 +5,8 @@ using UnityEngine.Rendering.PostProcessing;
 using System;
 
 [SerializeField]
-[PostProcess(renderer: typeof(CustomToneMapping), PostProcessEvent.AfterStack, "Custom/ToneMapping")]
-public sealed class CustomToneMappingSettings : PostProcessEffectSettings
+[PostProcess(renderer: typeof(CustomToneMappingRender), PostProcessEvent.AfterStack, "Custom/ToneMapping")]
+public sealed class CustomToneMapping : PostProcessEffectSettings
 {
     [Range(0f, 1f), Tooltip("Effect Intensity.")]
     public FloatParameter blend = new FloatParameter { value = 0.0f };
@@ -18,7 +18,7 @@ public sealed class CustomToneMappingSettings : PostProcessEffectSettings
     public FloatParameter exposure = new FloatParameter { value = 1f };
 }
 
-public class CustomToneMapping : PostProcessEffectRenderer<CustomToneMappingSettings>
+public class CustomToneMappingRender : PostProcessEffectRenderer<CustomToneMapping>
 {
     public override void Render(PostProcessRenderContext context)
     {

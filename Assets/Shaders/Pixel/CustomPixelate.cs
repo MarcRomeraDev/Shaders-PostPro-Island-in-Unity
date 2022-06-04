@@ -2,8 +2,8 @@ using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
 [SerializeField]
-[PostProcess(renderer: typeof(CustomPixelate), PostProcessEvent.AfterStack, "Custom/Pixelate")]
-public sealed class CustomPixelateSettings : PostProcessEffectSettings
+[PostProcess(renderer: typeof(CustomPixelateRender), PostProcessEvent.AfterStack, "Custom/Pixelate")]
+public sealed class CustomPixelate : PostProcessEffectSettings
 {
     [Range(0f, 1f), Tooltip("Effect Intensity.")]
     public FloatParameter blend = new FloatParameter { value = 0.0f };
@@ -28,7 +28,7 @@ public sealed class CustomPixelateSettings : PostProcessEffectSettings
     
 }
 
-public class CustomPixelate : PostProcessEffectRenderer<CustomPixelateSettings>
+public class CustomPixelateRender : PostProcessEffectRenderer<CustomPixelate>
 {
     public float timeSinceCollision = Time.timeSinceLevelLoad;
     public override void Render(PostProcessRenderContext context)

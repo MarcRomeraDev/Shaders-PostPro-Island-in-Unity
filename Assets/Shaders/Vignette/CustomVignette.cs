@@ -5,9 +5,9 @@ using UnityEngine.Rendering.PostProcessing;
 using System;
 
 [SerializeField]
-[PostProcess(renderer: typeof(CustomVignette), PostProcessEvent.AfterStack, "Custom/Vignette")]
+[PostProcess(renderer: typeof(CustomVignetteRender), PostProcessEvent.AfterStack, "Custom/Vignette")]
 
-public sealed class CustomVignetteSettings : PostProcessEffectSettings
+public sealed class CustomVignette : PostProcessEffectSettings
 {
     [Range(0f, 1f), Tooltip("Effect Intensity.")]
     public FloatParameter blend = new FloatParameter { value = 0.0f };
@@ -37,7 +37,7 @@ public sealed class CustomVignetteSettings : PostProcessEffectSettings
     public BoolParameter drowningAnimation = new BoolParameter { value = false };
 }
 
-public class CustomVignette : PostProcessEffectRenderer<CustomVignetteSettings>
+public class CustomVignetteRender : PostProcessEffectRenderer<CustomVignette>
 {
     public float timeSinceCollision = Time.timeSinceLevelLoad;
     public override void Render(PostProcessRenderContext context)
