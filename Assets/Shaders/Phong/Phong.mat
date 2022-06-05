@@ -90,7 +90,7 @@ Material:
     - _cameraPos: {r: 1.1100433, g: 1.4522374, b: -5.1509676, a: 1}
     - _directionaLightColor: {r: 1, g: 1, b: 1, a: 1}
     - _directionalLightColor: {r: 1, g: 0.5176471, b: 0, a: 0}
-    - _directionalLightDir: {r: -0.6277155, g: 0.77681625, b: -0.0502958, a: 0}
+    - _directionalLightDir: {r: -0.6277159, g: 0.6996856, b: -0.34119338, a: 0}
     - _objectColor: {r: 0.08550537, g: 1, b: 0.475, a: 1}
     - _pointLightColor: {r: 0.43137258, g: 0.4156863, b: 0.5764706, a: 0}
     - _pointLightPos: {r: 8.972, g: 3.298, b: -4.996, a: 0}

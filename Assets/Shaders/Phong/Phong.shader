@@ -49,8 +49,8 @@
 				float2 uv : TEXCOORD0;
 				SHADOW_COORDS(1)
 				float4 pos : SV_POSITION;
-				float3 worldNormal : TEXCOORD1;
-				float3 wPos : TEXCOORD2;
+				float3 worldNormal : TEXCOORD2;
+				float3 wPos : TEXCOORD3;
 			};
 
 			fixed4 _objectColor;
@@ -131,7 +131,7 @@
 				lightDir = normalize(_directionalLightDir);
 
 				//Diffuse componenet
-				difuseComp = lightColor * _diffuseInt * clamp(dot(lightDir, i.worldNormal),0,1) * shadow;
+				difuseComp = lightColor * _diffuseInt * clamp(dot(lightDir, i.worldNormal), 0, 1) * shadow;
 
 				viewVec = normalize(_WorldSpaceCameraPos - i.wPos);
 				
