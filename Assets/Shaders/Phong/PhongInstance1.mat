@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: b1f42ebce62ef9b48832a2a1addd5463, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -58,6 +58,7 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
+    - _Density: 30
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FresnelCoefficient: 1
@@ -68,24 +69,24 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Roughness: 0
+    - _Roughness: 0.639
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _ambientInt: 0.201
+    - _ambientInt: 0.412
     - _diffuseInt: 1
-    - _directionalLightIntensity: 0.73
+    - _directionalLightIntensity: 0.82
     - _pointLightIntensity: 1.83
     - _scecularExp: 0.1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ambientColor: {r: 0, g: 0.6757936, b: 0.8396226, a: 1}
-    - _directionalLightColor: {r: 1, g: 0.5174944, b: 0, a: 1}
-    - _directionalLightDir: {r: 0.3243867, g: 0.8348653, b: 0.44471702, a: 0}
-    - _objectColor: {r: 0.9716981, g: 0, b: 0.10220995, a: 1}
-    - _pointLightColor: {r: 0.42981052, g: 0.41531682, b: 0.5754717, a: 0}
-    - _pointLightPos: {r: 2.103, g: 3.237, b: -5.162, a: 0}
+    - _ambientColor: {r: 1, g: 1, b: 1, a: 1}
+    - _directionalLightColor: {r: 1, g: 0.5176471, b: 0, a: 0}
+    - _directionalLightDir: {r: -0.6277155, g: 0.77681625, b: -0.0502958, a: 0}
+    - _objectColor: {r: 1, g: 1, b: 1, a: 1}
+    - _pointLightColor: {r: 1, g: 1, b: 1, a: 0}
+    - _pointLightPos: {r: 8.972, g: 3.298, b: -4.996, a: 0}
   m_BuildTextureStacks: []

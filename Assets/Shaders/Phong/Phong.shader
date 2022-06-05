@@ -2,6 +2,8 @@
 {
 	Properties
 	{
+		_MainTex("Texture", 2D) = "white" {}
+
 		 _objectColor("Main color",Color) = (0,0,0,1)
 		 _ambientInt("Ambient int", Range(0,1)) = 0.25
 		 _ambientColor("Ambient Color", Color) = (0,0,0,1)
@@ -19,18 +21,21 @@
 		_Roughness("Roughness", Range(0, 1)) = 1
 		_FresnelCoefficient("Fresnel Coeficient", Range(0, 1)) = 0.5
 	}
-		SubShader
-	{
-		Tags { "RenderType" = "Opaque" }
 
+	SubShader
+	{
 		Pass
 		{
+			Tags { "RenderType" = "Opaque" }
 			CGPROGRAM
-			#pragma vertex vert
+			#pragma vertex vert			
 			#pragma fragment frag
 			#pragma multi_compile __ POINT_LIGHT_ON 
 			#pragma multi_compile __ DIRECTIONAL_LIGHT_ON
 			#include "UnityCG.cginc"
+			#include "Lighting.cginc" 
+			#pragma multi_compile_fwdbase nolightmap nodirlightmap nodynlightmap novertexlight
+			#include "AutoLight.cginc"
 
 			struct appdata
 			{
@@ -42,14 +47,15 @@
 			struct v2f
 			{
 				float2 uv : TEXCOORD0;
-				float4 vertex : SV_POSITION;
+				SHADOW_COORDS(1)
+				float4 pos : SV_POSITION;
 				float3 worldNormal : TEXCOORD1;
 				float3 wPos : TEXCOORD2;
 			};
 
 			fixed4 _objectColor;
 
-			float _ambientInt;//How strong it is?
+			float _ambientInt;
 			fixed4 _ambientColor;
 			float _diffuseInt;
 
@@ -92,19 +98,23 @@
 			v2f vert(appdata v)
 			{
 				v2f o;
-				o.vertex = UnityObjectToClipPos(v.vertex);
+				o.pos = UnityObjectToClipPos(v.vertex);
 				o.uv = v.uv;
 				o.worldNormal = UnityObjectToWorldNormal(v.normal);
 				o.wPos = mul(unity_ObjectToWorld, v.vertex).xyz;
+				TRANSFER_SHADOW(o);
 				return o;
 			}
+
+			sampler2D _MainTex;
 
 			fixed4 frag(v2f i) : SV_Target
 			{
 				//3 phong model light components
 				//We assign color to the ambient term		
 				fixed4 ambientComp = _ambientColor * _ambientInt;//We calculate the ambient term based on intensity
-				fixed4 finalColor = ambientComp;
+				fixed4 finalColor = tex2D(_MainTex, i.uv) * ambientComp;
+				fixed shadow = SHADOW_ATTENUATION(i);
 				
 				float3 viewVec;
 				float3 halfVec;
@@ -121,7 +131,7 @@
 				lightDir = normalize(_directionalLightDir);
 
 				//Diffuse componenet
-				difuseComp = lightColor * _diffuseInt * clamp(dot(lightDir, i.worldNormal),0,1);
+				difuseComp = lightColor * _diffuseInt * clamp(dot(lightDir, i.worldNormal),0,1) * shadow;
 
 				viewVec = normalize(_WorldSpaceCameraPos - i.wPos);
 				
@@ -136,7 +146,7 @@
 				specularComp = lightColor * BRDF;
 				
 				//Sum
-				finalColor += clamp(float4(_directionalLightIntensity * (difuseComp + specularComp),1),0,1);
+				finalColor.rgb += clamp(float4(_directionalLightIntensity * (difuseComp + specularComp),1),0,1);								
 #endif
 #if POINT_LIGHT_ON
 				//Point light properties
@@ -167,5 +177,7 @@
 			}
 			ENDCG
 		}
+		// shadow casting support
+		UsePass "Legacy Shaders/VertexLit/SHADOWCASTER"
 	}
 }
