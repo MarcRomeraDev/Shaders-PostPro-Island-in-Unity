@@ -16,6 +16,10 @@ public sealed class CustomToneMapping : PostProcessEffectSettings
 
     [Range(0f, 5f), Tooltip("Exposure")]
     public FloatParameter exposure = new FloatParameter { value = 1f };
+    [Header("Auto Exposure")]
+    [Range(0f, 5f), Tooltip("Exposure")]
+    public BoolParameter EyeAdaptation = new BoolParameter { value = false };
+
 }
 
 public class CustomToneMappingRender : PostProcessEffectRenderer<CustomToneMapping>
@@ -26,6 +30,7 @@ public class CustomToneMappingRender : PostProcessEffectRenderer<CustomToneMappi
         sheet.properties.SetFloat("_intensity", settings.blend);
         sheet.properties.SetFloat("_gamma", settings.gamma);
         sheet.properties.SetFloat("_exposure", settings.exposure);
+        sheet.properties.SetFloat("_eyeAdaptation", settings.EyeAdaptation ? 1:0);
         context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0);
     }
 }
