@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PhongInstance1
+  m_Name: Ground_Mat
   m_Shader: {fileID: 4800000, guid: 3d939ebab543e3c42aed8abbef4d9b2e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b1f42ebce62ef9b48832a2a1addd5463, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -62,31 +62,36 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FresnelCoefficient: 1
+    - _FresnelCoeficient: 0.5
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0.887
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Roughness: 0.639
+    - _Roughness: 0.508
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _ambientInt: 0.412
-    - _diffuseInt: 1
-    - _directionalLightIntensity: 0.82
-    - _pointLightIntensity: 1.83
+    - _ambientInt: 0.756
+    - _diffuseInt: 0
+    - _directionalLightIntensity: 1
+    - _ior: 3.23
+    - _pointLightIntensity: 1.68
+    - _roughness: -0.5
     - _scecularExp: 0.1
     m_Colors:
-    - _Color: {r: 1, g: 0, b: 0, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ambientColor: {r: 1, g: 1, b: 1, a: 1}
-    - _directionalLightColor: {r: 1, g: 0.5176471, b: 0, a: 0}
-    - _directionalLightDir: {r: -0.6277159, g: 0.6996856, b: -0.34119338, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 1, g: 0.5176471, b: 0, a: 0}
+    - _ambientColor: {r: 1, g: 1, b: 1, a: 0}
+    - _cameraPos: {r: 1.1100433, g: 1.4522374, b: -5.1509676, a: 1}
+    - _directionaLightColor: {r: 1, g: 1, b: 1, a: 1}
+    - _directionalLightColor: {r: 0.70888215, g: 0.83971167, b: 0.8490566, a: 0}
+    - _directionalLightDir: {r: 0.103449926, g: 0.97703385, b: -0.18628761, a: 0}
     - _objectColor: {r: 1, g: 1, b: 1, a: 1}
-    - _pointLightColor: {r: 1, g: 1, b: 1, a: 0}
-    - _pointLightPos: {r: 8.972, g: 3.298, b: -4.996, a: 0}
+    - _pointLightColor: {r: 0.43137258, g: 0.4156863, b: 0.5764706, a: 0}
+    - _pointLightPos: {r: 1.304, g: 5.26, b: -7.211, a: 0}
   m_BuildTextureStacks: []

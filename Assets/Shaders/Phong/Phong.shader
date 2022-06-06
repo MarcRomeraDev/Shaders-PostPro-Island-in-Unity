@@ -157,7 +157,7 @@
 				//lightDir *= 4 * 3.14;
 
 				//Diffuse componenet
-				difuseComp = lightColor * _diffuseInt * clamp(dot(lightDir, i.worldNormal), 0, 1) / lightDist;
+				difuseComp = lightColor * _diffuseInt * clamp(dot(lightDir, i.worldNormal), 0, 1) / lightDist * shadow;
 
 				viewVec = normalize(_WorldSpaceCameraPos - i.wPos);
 
