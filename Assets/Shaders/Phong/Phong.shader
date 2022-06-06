@@ -1,4 +1,4 @@
-﻿Shader "Unlit/Phong"
+﻿ Shader "Unlit/Phong"
 {
 	Properties
 	{
@@ -13,15 +13,20 @@
 		_pointLightPos("Point light Pos",Vector) = (0,0,0,1)
 		_pointLightColor("Point light Color",Color) = (0,0,0,1)
 		_pointLightIntensity("Point light Intensity",Float) = 1
+		
+		_directionalLightDir("Directional light Dir",Vector) = (0,1,0,1)
 
-		 _spotLightPos("Spot light Pos",Vector) = (0,0,0,1)
-		 _spotLightDir ("Spot light Dir",Vector) = (0,0,0,1)
-		 _spotLightColor("Spot light Color",Color) = (0,0,0,1)
-		_spotLightIntensity("Spot light Intensity",Float) = 1
+		_directionalLightColor("Directional light Color",Color) = (0,0,0,1)
+		_directionalLightIntensity("Directional light Intensity",Float) = 1
 
 		_directionalLightDir("Directional light Dir",Vector) = (0,1,0,1)
 		_directionalLightColor("Directional light Color",Color) = (0,0,0,1)
 		_directionalLightIntensity("Directional light Intensity",Float) = 1
+
+		//_spotLightPos("Spot light Pos", Vector) = (0, 0, 0, 1)
+		//_spotLightDir("Spot light Dir", Vector) = (0, 0, 0, 1)
+		//_spotLightColor("Spot light Color", Color) = (0, 0, 0, 1)
+		_spotLightIntensity("Spot light Intensity", Float) = 1
 
 		_Roughness("Roughness", Range(0, 1)) = 1
 		_FresnelCoefficient("Fresnel Coeficient", Range(0, 1)) = 0.5
@@ -36,6 +41,7 @@
 		{
 			Tags {"LightMode" = "ForwardBase"}
 			CGPROGRAM
+
 			#pragma vertex vert			
 			#pragma fragment frag
 			#pragma multi_compile __ POINT_LIGHT_ON 
@@ -72,19 +78,16 @@
 				 float4 _pointLightColor;
 				 float _pointLightIntensity;
 
-				 float4 _spotLightPos;
-				 float4 _spotLightDir;
-				 float4 _spotLightColor;
-				 float _spotLightIntensity;
-
 				 float4 _directionalLightDir;
 				 float4 _directionalLightColor;
 				 float _directionalLightIntensity;
 
-				
-				
-				
-				
+				 float4 _spotLightPos[10];
+				 float4 _spotLightDir[10];
+				 float4 _spotLightColor[10];
+				 int _size;
+				 float _spotLightIntensity;
+
 				
 
 				 float _Roughness, _FresnelCoefficient;
@@ -105,7 +108,6 @@
 				 float GGXGSF(float roughness, float3 l, float3 h, float3 v, float3 n) // l =light Vec; h = half Vec; v = view Vec; n = normal Vec
 				 {
 					 roughness = pow(roughness, 2);
-
 					 float NdotL = max(0.0, dot(n, l));
 					 float NdotV = max(0.0, dot(n, v));
 
@@ -185,7 +187,6 @@
 					 difuseComp = lightColor * _diffuseInt * clamp(dot(lightDir, i.worldNormal), 0, 1) / lightDist * shadow;
 
 					 viewVec = normalize(_WorldSpaceCameraPos - i.wPos);
-
 					 //blinnPhong
 					 halfVec = normalize(viewVec + lightDir);
 					 BRDF = (FresnelSchlick(lightDir, halfVec) *
@@ -200,15 +201,17 @@
 	 #endif
 	 #if SPOT_LIGHT_ON
 					
-
-						 lightColor = _spotLightColor.xyz;
-						 lightDir = _spotLightPos - i.wPos;
+					 for (int j = 0; j < _size; j++)
+					 {
+						
+						 lightColor = _spotLightColor[j].xyz;
+						 lightDir = _spotLightPos[j] - i.wPos;
 						 lightDist = length(lightDir);
 						 lightDir = lightDir / lightDist;
 						 lightDir = normalize(lightDir);
 
-
-						 float theta = dot(lightDir, normalize(_spotLightDir));
+						 
+						 float theta = dot(lightDir, normalize(_spotLightDir[j]));
 						 if (theta > cutOff) {
 							 // DIFFUSE
 
@@ -222,9 +225,9 @@
 								 GGXGSF(_Roughness, lightDir, halfVec, viewVec, i.worldNormal)) / (4.0 * dot(i.worldNormal, lightDir) * dot(i.worldNormal, viewVec));
 
 							 //Specular component	
-							 specularComp = _spotLightColor * BRDF / lightDist;
+							 specularComp = _spotLightColor[j] * BRDF / lightDist;
 
-							 float distance = length(_spotLightPos - i.wPos);
+							 float distance = length(_spotLightPos[j] - i.wPos);
 
 							 float attenuation = 1.0 / (constant + linearVal * distance + quadratic * (distance * distance));
 							 difuseComp = difuseComp * attenuation;
@@ -232,8 +235,8 @@
 
 							 finalColor += clamp(float4(_spotLightIntensity * (difuseComp + specularComp), 1), 0, 1);
 						 }
+					}
  #endif
-
 				 return finalColor * _objectColor;
 			 }
 			 ENDCG
