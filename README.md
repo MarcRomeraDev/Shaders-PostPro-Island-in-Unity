@@ -39,12 +39,12 @@ NOTE: The Tone Mapping, although in an advanced progress, is not finished and al
 	Located in Assets/Shaders/Transparent
 
 	-Emissive Mat & Transparent Mat-
-	We use a material with an emitting surface shader for the lights and a transparent material for the water surrounding the island and for the waterfall.
+	We use a material with an emitting surface shader for the light of the lamps on the beach and a transparent material for the water surrounding the island and for the 	waterfall.
 	Located in Assets/Shaders/Emissive & Transparent
 
 
 -Rogue Exercise --> Multiple light handling & spotlight-
 	For the rogue exercise we have chosen to implement the spotlight and to be able to handle several lights of the same type.
-	The spotlights are used as "lamp-like" light sources in the scene.
+	The spotlights are used as "lamp-like" light sources for the lamps of the beach in the scene.
 	We use an array to pass the data to the shader so we can have multiply light sources.
 	Script for the light is located in Assets/Scripts/Light and the proper spotlight calculation is located in Assets/Shaders/Phong
