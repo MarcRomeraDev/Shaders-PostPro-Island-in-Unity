@@ -310,4 +310,4 @@ MonoBehaviour:
     value: 1
   timeSinceCollision:
     overrideState: 1
-    value: 0
+    value: 10
