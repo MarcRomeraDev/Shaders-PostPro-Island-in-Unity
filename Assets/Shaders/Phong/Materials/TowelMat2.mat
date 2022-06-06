@@ -80,7 +80,7 @@ Material:
     - _directionalLightIntensity: 0.73
     - _pointLightIntensity: 2.16
     - _scecularExp: 0.1
-    - _size: 3
+    - _size: 2
     - _spotLightIntensity: 5
     - size: 2
     m_Colors:

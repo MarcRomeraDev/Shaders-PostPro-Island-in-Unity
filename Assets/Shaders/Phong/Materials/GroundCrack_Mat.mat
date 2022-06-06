@@ -83,7 +83,7 @@ Material:
     - _pointLightIntensity: 1.68
     - _roughness: -0.5
     - _scecularExp: 0.1
-    - _size: 3
+    - _size: 2
     - _spotLightIntensity: 5
     - size: 2
     m_Colors:

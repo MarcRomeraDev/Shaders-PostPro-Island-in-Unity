@@ -78,7 +78,7 @@ Material:
     - _diffuseInt: 0.751
     - _directionalLightIntensity: 1
     - _pointLightIntensity: 1
-    - _size: 3
+    - _size: 2
     - _spotLightIntensity: 5
     - size: 2
     m_Colors:
