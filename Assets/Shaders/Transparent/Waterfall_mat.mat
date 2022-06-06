@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Transparent_Mat
+  m_Name: Waterfall_mat
   m_Shader: {fileID: 4800000, guid: 17d2580bfe7274c47b6fcea073a0105d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 1598af325867c5f44b5637179eac2273, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -58,6 +58,7 @@ Material:
     m_Floats:
     - _Amount: 0.042
     - _Amplitude: 2.62
+    - _AnimationSpeed: 3
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _CutoutThresh: 0
@@ -70,7 +71,10 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _OffsetSize: 2
     - _Parallax: 0.02
+    - _ScrollXSpeed: 7
+    - _ScrollYSpeed: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Speed: 2.96

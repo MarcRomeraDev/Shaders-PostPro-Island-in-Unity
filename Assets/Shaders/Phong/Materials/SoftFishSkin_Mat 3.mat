@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SoftFishSkin_Mat 3
-  m_Shader: {fileID: 4800000, guid: 3d939ebab543e3c42aed8abbef4d9b2e, type: 3}
+  m_Shader: {fileID: 4800000, guid: dfefedbecfcbc754f9906ead94de48f9, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -56,6 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AnimationSpeed: 3
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -67,6 +68,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _OffsetSize: 0.3
     - _Parallax: 0.02
     - _Roughness: 0
     - _SmoothnessTextureChannel: 0

@@ -16,7 +16,7 @@ Located in Assets/Shaders/Phong
 All materials used in the scene use our shader (Except transparent and emissive). Some of them have more roughness or less, depending on the type of material they are. For example the parasol has more specular reflection than the sand.
 Located in Assets/Shaders/Phong/Materials
 
--GPU particle system-
+-Vertex Shader Animation-
 
 
 -Emissive Mat & Transparent Mat-

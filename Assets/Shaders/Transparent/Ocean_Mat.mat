@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: InsideMouth_Mat
-  m_Shader: {fileID: 4800000, guid: dfefedbecfcbc754f9906ead94de48f9, type: 3}
+  m_Name: Ocean_Mat
+  m_Shader: {fileID: 4800000, guid: 17d2580bfe7274c47b6fcea073a0105d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -40,9 +40,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 1598af325867c5f44b5637179eac2273, type: 3}
         m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 1, y: 0}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -56,41 +56,35 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _Amount: 0.042
+    - _Amplitude: 2.62
     - _AnimationSpeed: 3
     - _BumpScale: 1
     - _Cutoff: 0.5
+    - _CutoutThresh: 0
     - _DetailNormalMapScale: 1
+    - _Distance: 25.83
     - _DstBlend: 0
-    - _FresnelCoefficient: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0.482
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OffsetSize: 0.3
+    - _OffsetSize: 2
     - _Parallax: 0.02
-    - _Roughness: 0
+    - _ScrollXSpeed: -0.05
+    - _ScrollYSpeed: 0.1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _Speed: 2.96
     - _SrcBlend: 1
+    - _Transparency: 0.5
     - _UVSec: 0
     - _ZWrite: 1
-    - _ambientInt: 0.634
-    - _diffuseInt: 0.688
-    - _directionalLightIntensity: 0.73
-    - _pointLightIntensity: 1
-    - _spotLightIntensity: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.15686274, g: 0.6192452, b: 1, a: 0.6862745}
+    - _Emission: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ambientColor: {r: 0.9487362, g: 0.97912824, b: 0.9811321, a: 1}
-    - _directionalLightColor: {r: 0.5283019, g: 0.1293907, b: 0.037379846, a: 0}
-    - _directionalLightDir: {r: 0.297926, g: 0.6709443, b: -0.6790242, a: 0}
-    - _objectColor: {r: 0.7169812, g: 0.40922037, b: 0.42544085, a: 1}
-    - _pointLightColor: {r: 0, g: 0, b: 0, a: 1}
-    - _pointLightPos: {r: 0, g: 0, b: 0, a: 1}
-    - _spotLightColor: {r: 0.43137258, g: 0.4156863, b: 0.5764706, a: 0}
-    - _spotLightDir: {r: 0.02880808, g: 0.70083696, b: 0.7127395, a: 0}
-    - _spotLightPos: {r: -0.12, g: 4.03, b: -0.12, a: 0}
+    - _TintColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

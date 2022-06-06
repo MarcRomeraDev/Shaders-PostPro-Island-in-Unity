@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FishMat
-  m_Shader: {fileID: 4800000, guid: 3d939ebab543e3c42aed8abbef4d9b2e, type: 3}
+  m_Name: Shark_mat
+  m_Shader: {fileID: 4800000, guid: dfefedbecfcbc754f9906ead94de48f9, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 56fea34ab77b01d43b582e945bbe8ef1, type: 3}
+        m_Texture: {fileID: 2800000, guid: efe2ee5eb66ffca43a70c9e1ccb7f077, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -56,19 +56,21 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AnimationSpeed: 3
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FresnelCoefficient: 0.57
+    - _FresnelCoefficient: 0.92
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _OffsetSize: 0.3
     - _Parallax: 0.02
-    - _Roughness: 0.356
+    - _Roughness: 0.393
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -85,7 +87,7 @@ Material:
     - _ambientColor: {r: 1, g: 1, b: 1, a: 1}
     - _directionalLightColor: {r: 0.5283019, g: 0.1293907, b: 0.037379846, a: 0}
     - _directionalLightDir: {r: 0.297926, g: 0.6709443, b: -0.6790242, a: 0}
-    - _objectColor: {r: 0.18431371, g: 0.763866, b: 1, a: 1}
+    - _objectColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
     - _pointLightColor: {r: 0, g: 0, b: 0, a: 1}
     - _pointLightPos: {r: 0, g: 0, b: 0, a: 1}
     - _spotLightColor: {r: 0.43137258, g: 0.4156863, b: 0.5764706, a: 0}

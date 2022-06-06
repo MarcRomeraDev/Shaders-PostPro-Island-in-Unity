@@ -1,13 +1,16 @@
-Shader "Custom/GrassShader"
+Shader "Custom/SharkVertexAnimationShader"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Color("Color", Color) = (1,1,1,1)
+        _AnimationSpeed("Animation Speed", Range(0,3)) = 0
+        _OffsetSize("Offset Size", Range(0,10)) = 0
     }
     SubShader
     {
-        // No culling or depth
-        Cull Off ZWrite Off ZTest Always
+        Tags { "RenderType"="Opaque" }
+        LOD 100
 
         Pass
         {
@@ -29,22 +32,25 @@ Shader "Custom/GrassShader"
                 float4 vertex : SV_POSITION;
             };
 
+            sampler2D _MainTex;
+            fixed4 _Color;
+            float _AnimationSpeed;
+            float _OffsetSize;
+
             v2f vert (appdata v)
             {
                 v2f o;
+
+                v.vertex.x += sin(_Time.y * _AnimationSpeed + v.vertex.z * _OffsetSize);
+
                 o.vertex = UnityObjectToClipPos(v.vertex);
-               
                 o.uv = v.uv;
                 return o;
             }
 
-            sampler2D _MainTex;
-
             fixed4 frag (v2f i) : SV_Target
             {
-                fixed4 col = tex2D(_MainTex, i.uv);
-                // just invert the colors
-                col.rgb = 1 - col.rgb;
+                fixed4 col = tex2D(_MainTex, i.uv) * _Color;
                 return col;
             }
             ENDCG
