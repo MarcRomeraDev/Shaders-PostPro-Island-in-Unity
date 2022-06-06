@@ -4949,6 +4949,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: stone_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 82a5e011e20e4394cbd129677ab8afb4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 82a5e011e20e4394cbd129677ab8afb4, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -5006,9 +5010,25 @@ PrefabInstance:
       value: 165.00009
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 82a5e011e20e4394cbd129677ab8afb4, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 82a5e011e20e4394cbd129677ab8afb4, type: 3}
+      propertyPath: m_ImportantGI
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 82a5e011e20e4394cbd129677ab8afb4, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 82a5e011e20e4394cbd129677ab8afb4, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 82a5e011e20e4394cbd129677ab8afb4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e2e97958d5c2f834aae0c5cf2e40cd52, type: 2}
+      objectReference: {fileID: 2100000, guid: 5ed1d682a9f01da428453481f2d43ec0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82a5e011e20e4394cbd129677ab8afb4, type: 3}
 --- !u!4 &1427947142 stripped
@@ -5824,6 +5844,10 @@ PrefabInstance:
     - target: {fileID: 100052, guid: 5b97a7a3863937b458829d45785c5890, type: 3}
       propertyPath: m_Name
       value: stone_04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100052, guid: 5b97a7a3863937b458829d45785c5890, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: 5b97a7a3863937b458829d45785c5890, type: 3}
       propertyPath: m_RootOrder
