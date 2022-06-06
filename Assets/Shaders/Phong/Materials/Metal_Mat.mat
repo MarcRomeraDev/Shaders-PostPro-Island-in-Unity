@@ -60,7 +60,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FresnelCoefficient: 0.57
+    - _FresnelCoefficient: 0.92
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
