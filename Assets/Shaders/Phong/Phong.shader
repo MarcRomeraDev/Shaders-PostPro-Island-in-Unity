@@ -26,7 +26,7 @@
 	{
 		Pass
 		{
-			Tags { "RenderType" = "Opaque" }
+			Tags {"LightMode" = "ForwardBase"}
 			CGPROGRAM
 			#pragma vertex vert			
 			#pragma fragment frag
