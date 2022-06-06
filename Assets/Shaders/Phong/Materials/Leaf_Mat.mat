@@ -78,13 +78,17 @@ Material:
     - _diffuseInt: 0
     - _directionalLightIntensity: 1
     - _pointLightIntensity: 1
+    - _spotLightIntensity: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _ambientColor: {r: 1, g: 1, b: 1, a: 1}
-    - _directionalLightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _directionalLightDir: {r: 0, g: 1, b: 0, a: 1}
+    - _directionalLightColor: {r: 0.5283019, g: 0.1293907, b: 0.037379846, a: 0}
+    - _directionalLightDir: {r: 0.297926, g: 0.6709443, b: -0.6790242, a: 0}
     - _objectColor: {r: 1, g: 1, b: 1, a: 1}
     - _pointLightColor: {r: 0, g: 0, b: 0, a: 1}
     - _pointLightPos: {r: 0, g: 0, b: 0, a: 1}
+    - _spotLightColor: {r: 0.43137258, g: 0.4156863, b: 0.5764706, a: 0}
+    - _spotLightDir: {r: 0.02880808, g: 0.70083696, b: 0.7127395, a: 0}
+    - _spotLightPos: {r: -0.12, g: 4.03, b: -0.12, a: 0}
   m_BuildTextureStacks: []
