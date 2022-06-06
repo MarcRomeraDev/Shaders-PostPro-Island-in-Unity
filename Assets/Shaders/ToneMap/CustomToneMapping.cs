@@ -24,13 +24,51 @@ public sealed class CustomToneMapping : PostProcessEffectSettings
 
 public class CustomToneMappingRender : PostProcessEffectRenderer<CustomToneMapping>
 {
+    public float incrementValue = 0f;
+    public float desiredLightLevel = 100;
+    public float lightLevel = 0;
     public override void Render(PostProcessRenderContext context)
     {
         var sheet = context.propertySheets.Get(Shader.Find("Hidden/Custom/ToneMapping"));
+        var luminosityMainTexture = RenderTexture.GetTemporary(context.width, context.height);
+        if (Time.frameCount % 30 == 0)
+        {
+            System.GC.Collect();
+        }
+
         sheet.properties.SetFloat("_intensity", settings.blend);
         sheet.properties.SetFloat("_gamma", settings.gamma);
+
         sheet.properties.SetFloat("_exposure", settings.exposure);
-        sheet.properties.SetFloat("_eyeAdaptation", settings.EyeAdaptation ? 1:0);
-        context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0);
+        sheet.properties.SetFloat("_incrementalValue", 0);
+        //context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0);
+        if (settings.EyeAdaptation)
+        {
+            Texture2D lumiTexture = new Texture2D(luminosityMainTexture.width, luminosityMainTexture.height);
+            lumiTexture.Apply();
+            Color32[] colors = lumiTexture.GetPixels32();
+            lightLevel = 0f;
+            for (int i = 0; i < colors.Length; i++)
+            {
+                lightLevel += (0.2126f * colors[i].r) + (0.7152f * colors[i].g) + (0.0722f * colors[i].b);
+            }
+
+            lightLevel /= colors.Length;
+
+            //lightLevel -= 259330f;
+             incrementValue = (lightLevel - desiredLightLevel);
+
+
+            sheet.properties.SetFloat("_incrementalValue", incrementValue);
+            
+        }
+           
+           context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0); 
+        RenderTexture.ReleaseTemporary(luminosityMainTexture);
+
+      //  sheet.properties.SetFloat("_eyeAdaptation", settings.EyeAdaptation ? 1:0);
+      
+     
+
     }
 }
